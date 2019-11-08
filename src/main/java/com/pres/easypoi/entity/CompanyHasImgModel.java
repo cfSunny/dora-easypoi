@@ -17,9 +17,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class CompanyHasImgModel implements Serializable {
+public class CompanyHasImgModel extends TeacherEntity implements Serializable   {
     @Excel(name = "id",width=40,orderNum = "1",fixedIndex = 0)
-    private int companyId;
+    public int companyId;
 
     @Excel(name = "公司名字",width=40,orderNum = "2",fixedIndex = 1)
     private String companyName;

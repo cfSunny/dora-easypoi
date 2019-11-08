@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -47,12 +47,51 @@ public class EasyExportController {
 //            }
 //
 //        }
-        Method[] methods = aClass.getMethods();
-        Method method = aClass.getMethod("method", byte.class);
-        method.getParameterTypes();
-        aClass.getDeclaredFields();
-        aClass.getFields();
-        method.invoke(companyHasImgModel,(byte)1);
+        // method
+//        Method[] methods = aClass.getMethods();
+//        Method method = aClass.getMethod("method", byte.class);
+//        method.getParameterTypes();
+//        aClass.getDeclaredFields();
+//        aClass.getFields();
+//        method.invoke(companyHasImgModel,(byte)1);
+
+        // 父类+自身的所有公共属性
+        Field[] fields = aClass.getFields();
+        System.out.println("fields = " + fields.length);
+
+        // 自身所有属性
+        Field[] declaredFields = aClass.getDeclaredFields();
+        System.out.println("declaredFields = " + declaredFields.length);
+
+        // 获取类的类名
+        String name = aClass.getName();
+        System.out.println("name = " + name);
+
+        // 获取父类
+        Class<?> superclass = aClass.getSuperclass();
+        System.out.println("superclass.getName() = " + superclass.getName());
+
+        // 获取内部类
+        Class<?>[] declaredClasses = aClass.getDeclaredClasses();
+        System.out.println("declaredClasses.length = " + declaredClasses.length);
+
+        // 获取内部类
+        Class<?>[] classes = aClass.getClasses();
+        System.out.println("classes.length = " + classes.length);
+
+        // 内部类获取定义他的外部类
+//        Class<?> declaringClass = aClass.getDeclaringClass();
+//        System.out.println("declaringClass.length = " + declaringClass.getName());
+
+
+
+
+//        Class<?> componentType = aClass.getComponentType();
+//        String name1 = componentType.getName();
+//        System.out.println("name1 = " + name1);
+
+
+
 
         System.out.println("companyHasImgModel.getCompanyId() = " + companyHasImgModel.getCompanyId());
     }
