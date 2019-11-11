@@ -56,7 +56,12 @@
             <artifactId>easypoi-annotation</artifactId>
             <version>3.3.0</version>
         </dependency>
-
+        <!-- 准换成csv-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.7</version>
+        </dependency>
 
     </dependencies>
 
